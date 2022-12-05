@@ -18,7 +18,7 @@
             let itemPrice = 0;
 
             do {
-                itemPrice = parseFloat(prompt("Enter item price. (Items added: " + (items) + ")"));
+                itemPrice = parseFloat(prompt("Enter price for item " + (items + 1) + "."));
                 if (itemPrice < 0) {
                     display("Error. Invalid price.")
                 } else if (itemPrice == 0) {
@@ -35,8 +35,9 @@
             display("No. of items: " + (items));
             display("===============");
 
-            let total = subtotal * (1 + 0.05); // adding 5% sales tax
-            display("plus 5% sales tax");
+            let tax = subtotal * 0.05;
+            let total = subtotal + tax;
+            display("5% sales tax: Php" + tax.toFixed(2));
             display("Total: Php" + total.toFixed(2));
 
             
