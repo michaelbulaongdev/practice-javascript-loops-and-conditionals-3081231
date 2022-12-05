@@ -12,6 +12,17 @@
       <p id="output"></p>
     
         <script>
+
+          let balance = parseInt(prompt('Enter your current balance.'));
+
+          let deposit = parseInt(prompt('Enter your deposit amount.'))
+
+          if (deposit >= 10000) {
+            display('Funds may be on hold for 3 days.');
+          }
+          balance = balance + deposit;
+          display('New balance is Php' + balance);
+
 /*
  * This program will simulate a deposit to a bank account.
  * It does the following:
