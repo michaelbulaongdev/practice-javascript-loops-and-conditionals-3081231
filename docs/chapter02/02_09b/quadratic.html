@@ -12,6 +12,27 @@
         <p id="output"></p>
     
         <script>
+
+            let a = parseInt(prompt("Enter first number a."));
+            let b = parseInt(prompt("Enter second number b."));
+            let c = parseInt(prompt("Enter third number c."));
+
+            let discriminant = (b * b) - (4 * a * c);
+            let solution1 = 0;
+            let solution2 = 0;
+
+            if (discriminant < 0) {
+                display("There are no real number solutions.");
+            } else if (discriminant == 0) {
+                solution1 = (b * -1) / (2 * a);
+                display("There is one solution for this, which is equal to " + solution1 + ".");
+            } else if (discriminant > 0) {
+                solution1 = (-b + sqrt(b^2 - (4*a*c))) / (2*a);
+                solution2 = (-b - sqrt(b^2 - (4*a*c))) / (2*a);
+                display("There are two solutions for this, which are equal to " + solution1 + " and " + solution2 + ", respectively.");
+            }
+
+
 /*
  * This program determines the solution(s) for the
  * quadratic equation: ax^2 + bx + c = 0.
