@@ -12,6 +12,19 @@
         <p id="output"></p>
     
         <script>
+
+            let currentBal = parseFloat(prompt("Enter current balance."));
+            let withdrawal = parseFloat(prompt("Enter withdrawal amount."));
+
+            if (withdrawal <= currentBal) {
+                let newBal = currentBal - withdrawal;
+                display("Your new balance is Php" + newBal + ".");
+            } else {
+                display("You do not have enough balance to complete this transaction.")
+            }
+            
+            display("Thank you for banking with us.")
+
 /*
  * This program will simulate a withdrawal from a bank account.
  * It does the following:

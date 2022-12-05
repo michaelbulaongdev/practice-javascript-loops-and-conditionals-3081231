@@ -12,6 +12,20 @@
         <p id="output"></p>
     
         <script>
+
+            let price = parseFloat(prompt("Enter item price."));
+            let age = parseInt(prompt("Enter your age."));
+
+            if (age > 21 && age < 65) {
+                let discount = 0.05;
+            } else {
+                let discount = 0.10;
+            }
+
+            let discountedPrice = price - (price * discount);
+
+            display("You are eligible to a " + (discount * 100) + "% discount.");
+
 /*
  * This program determines a discount depending on
  * the customer's age.
