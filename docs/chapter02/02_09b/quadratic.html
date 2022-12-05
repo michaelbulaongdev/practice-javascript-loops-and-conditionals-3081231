@@ -13,9 +13,11 @@
     
         <script>
 
-            let a = parseInt(prompt("Enter first number a."));
-            let b = parseInt(prompt("Enter second number b."));
-            let c = parseInt(prompt("Enter third number c."));
+            let a = parseFloat(prompt("Enter first number a."));
+            let b = parseFloat(prompt("Enter second number b."));
+            let c = parseFloat(prompt("Enter third number c."));
+
+            display(a + "x^2 + " + b + "x + " + c + " = 0");
 
             let discriminant = parseFloat((b*b) - (4*a*c));
             console.log("discriminant = " + discriminant);
@@ -24,14 +26,14 @@
             let solution2 = 0;
 
             if (discriminant < 0) {
-                display("There are no real number solutions.");
+                display("There are no real number solutions for this equation.");
             } else if (discriminant == 0) {
                 solution1 = parseFloat((b * -1) / (2 * a));
-                display("There is one solution for this, which is equal to " + solution1 + ".");
-            } else if (discriminant > 0) {
-                solution1 = parseFloat(((-1*b) + Math.sqrt((b*b) - (4*a*c))) / (2*a));
-                solution2 = parseFloat(((-1*b) - Math.sqrt((b*b) - (4*a*c))) / (2*a));
-                display("There are two solutions for this, which are equal to " + solution1 + " and " + solution2 + ", respectively.");
+                display("There is one solution for this equation, which is equal to " + solution1 + ".");
+            } else {
+                solution1 = parseFloat(((-b) + Math.sqrt(discriminant)) / (2*a));
+                solution2 = parseFloat(((-b) - Math.sqrt(discriminant)) / (2*a));
+                display("There are two solutions for this equation, which are equal to " + solution1 + " and " + solution2 + ", respectively.");
             }
 
 /*
