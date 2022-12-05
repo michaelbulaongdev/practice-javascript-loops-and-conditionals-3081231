@@ -12,6 +12,61 @@
         <p id="output"></p>
     
         <script>
+
+            let month = parseInt(prompt("Enter month number (1-12)."));
+            let year = parseInt(prompt("Enter year (4 digits)."));
+
+            if (year <= 0 || month <= 0 || month > 12) {
+                display("Invalid input.")
+            } else {
+                switch (month) {
+                    case 1:
+                        display("January has 31 days in the year " + year + ".");
+                        break;
+                    case 2:
+                        if (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0)) {
+                            display("Year " + year + " is a leap year!");
+                            display("February has 29 days for this year.");
+                        } else {
+                            display("February has 28 days in the year " + year + ".");
+                        }
+                        break;
+                    case 3:
+                        display("March has 31 days in the year " + year + ".");
+                        break;
+                    case 4:
+                        display("April has 30 days in the year " + year + ".");
+                        break;
+                    case 5:
+                        display("May has 31 days in the year " + year + ".");
+                        break;
+                    case 6:
+                        display("June has 30 days in the year " + year + ".");
+                        break;
+                    case 7:
+                        display("July has 31 days in the year " + year + ".");
+                        break;
+                    case 8:
+                        display("August has 31 days in the year " + year + ".");
+                        break;
+                    case 9:
+                        display("September has 30 days in the year " + year + ".");
+                        break;
+                    case 10:
+                        display("October has 31 days in the year " + year + ".");
+                        break;
+                    case 11:
+                        display("November has 30 days in the year " + year + ".");
+                        break;
+                    case 12:
+                        display("December has 31 days in the year " + year + ".");
+                        break;
+                    default:
+                        display("Invalid input.")
+                        break;
+                }
+            }
+
 /*
  * Prompt for month number and four-digit year.
  * Use a switch statement to calculate the number of days
