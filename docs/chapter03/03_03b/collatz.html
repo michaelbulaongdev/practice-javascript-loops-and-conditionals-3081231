@@ -12,6 +12,30 @@
         <p id="output"></p>
     
         <script>
+
+            let num = 0;
+            let count = 0;
+
+            do {
+                num = parseInt(prompt("Enter a positive number."));
+            } while (num <= 0);
+
+            display("Starting number: " + num);
+
+            while (num !== 1) {
+                if (num % 2 === 0) {
+                    // even number
+                    num = num / 2;
+                } else {
+                    // odd number
+                    num = (num * 3) + 1;
+                }
+                display(num);
+                count++;
+            }
+
+            display("Steps to reach the number one: " + count);
+                
 /*
  * Get a number
  * Set the number of steps to 1
