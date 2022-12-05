@@ -12,6 +12,38 @@
         <p id="output"></p>
    
         <script>
+
+            let principal = parseFloat(prompt("Enter loan amount."));
+            let years = parseInt(prompt("Enter number of years to pay."));
+            let rateInput = parseFloat(prompt("Enter annual interest rate (e.g. 10 for 10%)."));
+
+            let months = years * 12;
+
+            display("Loan amount: Php" + principal.toFixed(2));
+            display("Number of years to pay: " + years + " years or " + months + " months");
+            display("Annual interest rate: " + rateInput + "%");
+
+            let rate = (rateInput / 12) / 100;
+            console.log("monthly interest rate in decimals: " + rate);
+
+            let monthlyPayment = (rate * principal) / (1 - Math.pow((1 + rate), (-1 * months)))
+            display("Monthly payment: Php" + monthlyPayment.toFixed(2));
+
+            let interestPart = rate * principal;
+            let principalPart = monthlyPayment - interestPart;
+            console.log(`balance: ${principal.toFixed(2)}, interest: ${interestPart.toFixed(2)}, principal: ${principalPart.toFixed(2)}`);
+            let monthCount = 0;
+
+            while (interestPart > principalPart) {
+                principal = principal - monthlyPayment;
+                interestPart = rate * principal;
+                principalPart = monthlyPayment - interestPart;
+                console.log(`balance: ${principal.toFixed(2)}, interest: ${interestPart.toFixed(2)}, principal: ${principalPart.toFixed(2)}`);
+                monthCount++;
+            }
+
+            display("Break even point after " + monthCount + " month/s of payment.");
+
         /*
         * Get the loan amount, number of years, and annual interest rate.
         * Calculate the monthly payment using formula:
