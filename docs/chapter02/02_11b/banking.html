@@ -12,6 +12,48 @@
         <p id="output"></p>
     
         <script>
+
+            let balance = parseFloat(prompt("Enter current balance."));
+            let transaction = prompt("Press D for deposit or W for withdrawal.").toLowerCase();
+
+            if (transaction === "d") {
+                deposit();
+            } else if (transaction === "w") {
+                withdraw();
+            } else {
+                display("Invalid transaction. Please press D (for deposit) or W (for withdrawal).")
+            }
+
+            function deposit() {
+                let amount = parseFloat(prompt("Enter amount to deposit."));
+
+                if (amount > 0) {
+                    if (amount >= 10000) {
+                        display("Funds may be on hold for 3 banking days awaiting approval.");
+                    }
+                    let newBal = balance + amount;
+                    display("Deposit successful. Your new balance is Php" + newBal.toFixed(2) + ".");
+                } else {
+                    display("Invalid amount. Deposit amount must greater than zero.")
+                }
+            }
+
+            function withdraw() {
+                let amount = parseFloat(prompt("Enter amount to withdraw."));
+
+                if (amount > 0) {
+                    if (amount > balance) {
+                        display("Insufficient balance. Please enter amount less than or equal to Php" + balance.toFixed(2) + ".");
+                    } else {
+                        let newBal = balance - amount;
+                        display("Withdrawal successful. Your remaining balance is Php" + newBal.toFixed(2) + ".");
+                    }
+                } else {
+                    display("Invalid amount. Withdrawal amount must be greater than zero.");
+                }
+            }
+
+            
 /*
  * Prompt for D (deposit) or W (withdrawal), in either
  * upper or lower case.
