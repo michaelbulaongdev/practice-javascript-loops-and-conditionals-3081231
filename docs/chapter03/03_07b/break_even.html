@@ -29,19 +29,18 @@
             let monthlyPayment = (rate * principal) / (1 - Math.pow((1 + rate), (-1 * months)))
             display("Monthly payment: Php" + monthlyPayment.toFixed(2));
 
-            let interestPart = rate * principal;
-            let principalPart = monthlyPayment - interestPart;
-            console.log(`balance: ${principal.toFixed(2)}, interest: ${interestPart.toFixed(2)}, principal: ${principalPart.toFixed(2)}`);
+            let interestPart = 0;
+            let principalPart = 0;
             let monthCount = 0;
 
-            while (interestPart > principalPart) {
-                principal = principal - monthlyPayment;
+            do {
                 interestPart = rate * principal;
                 principalPart = monthlyPayment - interestPart;
-                console.log(`balance: ${principal.toFixed(2)}, interest: ${interestPart.toFixed(2)}, principal: ${principalPart.toFixed(2)}`);
+                principal = principal - monthlyPayment;
+                console.log(`Balance: Php${principal.toFixed(2)}, Interest: Php${interestPart.toFixed(2)}, Principal: Php${principalPart.toFixed(2)}`);
                 monthCount++;
-            }
-
+            } while (interestPart > principalPart);
+                
             display("Break even point after " + monthCount + " month/s of payment.");
 
         /*
