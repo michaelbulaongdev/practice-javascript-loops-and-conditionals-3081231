@@ -13,6 +13,35 @@
     <p id="output"></p>
 
   <script>
+
+    let trials = 0;
+    let totalRolls = 0;
+    let rolls = 0;
+    let isFinished = false;
+
+    while (trials < 1000000) { //set to higher number of trials for more accurate results
+      rolls = 0;
+      isFinished = false;
+      
+      while (isFinished === false) {
+        let dice1 = Math.floor(Math.random() * 6 + 1);
+        let dice2 = Math.floor(Math.random() * 6 + 1);
+        rolls++;
+        if (dice1 === dice2) {
+          isFinished = true;
+        }
+      }
+
+      totalRolls = totalRolls + rolls;
+      trials++;
+    }
+
+    let aveRolls = totalRolls / trials;
+    display("Total number of rolls: " + totalRolls);
+    display("Total number of trials: " + trials);
+    display("Average number of rolls to get dice doubles: " + aveRolls);
+
+
     /*
      * Set number of trials to zero
      * Set total rolls to zero
