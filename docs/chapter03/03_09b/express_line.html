@@ -12,6 +12,34 @@
         <p id="output"></p>
     
         <script>
+
+            let subtotal = 0;
+            let items = 1;
+            let itemPrice = 0;
+
+            do {
+                itemPrice = parseFloat(prompt("Enter item price. (Items added: " + (items - 1) + ")"));
+                if (itemPrice < 0) {
+                    display("Error. Invalid price.")
+                } else if (itemPrice == 0) {
+                    subtotal = subtotal + itemPrice;
+                } else {
+                    display("Item #" + items + ": Php" + itemPrice.toFixed(2));
+                    items++;
+                    subtotal = subtotal + itemPrice;
+                }
+            } while (itemPrice > 0 && items <= 20);
+
+            display("===============");
+            display("Subtotal: Php" + subtotal.toFixed(2));
+            display("No. of items: " + (items - 1));
+            display("===============");
+
+            let total = subtotal * (1 + 0.05); // adding 5% sales tax
+            display("plus 5% sales tax");
+            display("Total: Php" + total.toFixed(2));
+
+            
 /*
  * Set subtotal and number of items purchased to zero.
  * Do these steps:
