@@ -17,6 +17,18 @@
  * convert it to a decimal, using an indexed for loop.
  */
 
+let binaryStr = prompt("Enter a binary number (consisting of only ones and zeroes).");
+let power = 0;
+let decimal = 0;
+
+for (let i = (binaryStr.length - 1); i > -1; i--) {
+    decimal += (parseInt(binaryStr[i]) * Math.pow(2, power));
+    power++;
+}
+
+display(`Initial binary number: ${binaryStr}`);
+display(`Decimal counterpart: ${decimal}`);
+
         </script>
     </body>
 </html>
