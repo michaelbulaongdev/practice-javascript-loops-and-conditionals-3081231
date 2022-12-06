@@ -21,7 +21,7 @@ let binaryStr = prompt("Enter a binary number (consisting of only ones and zeroe
 let power = 0;
 let decimal = 0;
 
-for (let i = (binaryStr.length - 1); i > -1; i--) {
+for (let i = (binaryStr.length - 1); i >= 0; i--) {
     decimal += (parseInt(binaryStr[i]) * Math.pow(2, power));
     power++;
 }
