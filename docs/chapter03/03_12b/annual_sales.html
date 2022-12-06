@@ -11,7 +11,8 @@
         <hr />
         <p id="output"></p>
     
-        <script>
+        <script>  
+
 /*
  * Set an array of twelve monthly sales figures (in $K)
  * Use a for loop to find the month with the minimum sales
@@ -19,8 +20,25 @@
  * values for those months.
  */
 
-let sales = [17.2, 16.5, 18.3, 19.3, 17.8, 21.3, 22.4,
-   22.0, 19.9, 23.3, 21.7, 22.2];
+let sales = [17.2, 16.5, 18.3, 19.3, 17.8, 21.3, 22.4, 22.0, 19.9, 23.3, 21.7, 22.2];
+let min = sales[0];
+let max = sales[0];
+
+for (let i = 1; i < (sales.length); i++) {
+    (min < sales[i]) ? min = min : min = sales[i];
+    console.log(`i:${i}, min:${min}`)
+}
+
+for (let i = 1; i < (sales.length); i++) {
+    (max > sales[i]) ? max = max : max = sales[i];
+    console.log(`i:${i}, max:${max}`)
+}
+
+let minMonth = sales.indexOf(min) + 1;
+let maxMonth = sales.indexOf(max) + 1;
+
+display(`Lowest sales of ${min}% during month ${minMonth}.`);
+display(`Highest sales of ${max}% during month ${maxMonth}.`);
 
         </script>
     </body>
