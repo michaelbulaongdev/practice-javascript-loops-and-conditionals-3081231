@@ -30,6 +30,23 @@
      +
  */
 
+let numRow = parseInt(prompt("Enter a number from 1-10."));
+let rowLength = (numRow * 2) - 1;
+let space = " ";
+let plus = "+";
+
+display(`Inverted triangle with ${numRow} rows.`);
+
+for (let i = 1; i <= numRow; i++) {
+    for (let j = 1; j < rowLength; j++) {
+        plus = plus + "+";
+    }
+    display(space + plus);
+    space = space + " ";
+    plus = "+";
+    rowLength = rowLength - 2;
+}
+
         </script>
     </body>
 </html>
