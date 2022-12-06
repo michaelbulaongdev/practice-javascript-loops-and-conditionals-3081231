@@ -14,20 +14,17 @@
         <script>
 /*
  * Read an input string consisting of ones and zeros, and
- * convert it to a decimal, using an indexed for loop.
+ * convert it to a decimal, using a for...of loop.
  */
 let binaryStr = prompt("Enter a binary number");
 
 let decimal = 0;
-let factor = 1;
 let valid = true;
 
-for (let index = binaryStr.length - 1; index >= 0; index--) {
-    let chr = binaryStr[index];
+for (const chr of binaryStr) {
     if (chr == "0" || chr == "1") {
         let digit = parseInt(chr);
-        decimal = decimal + digit * factor;
-        factor = factor * 2;
+        decimal = decimal * 2 + digit;
     } else if (chr != " ") {
         display(chr + " is not allowed. Use only 0, 1, and blanks.");
         valid = false;
