@@ -30,22 +30,30 @@
      +
  */
 
-let numRow = parseInt(prompt("Enter a number from 1-10."));
-let rowLength = (numRow * 2) - 1;
-let space = " ";
-let plus = "+";
+let numRow = parseInt(prompt("Enter a number from 1-100."));
 
-display(`Inverted triangle with ${numRow} rows.`);
+if (numRow >= 1 && numRow <= 100) {
 
-for (let i = 1; i <= numRow; i++) {
-    for (let j = 1; j < rowLength; j++) {
-        plus = plus + "+";
+    let rowLength = (numRow * 2) - 1;
+    let space = " ";
+    let plus = "+";
+
+    display(`Inverted triangle with ${numRow} row/s.`);
+
+    for (let i = 1; i <= numRow; i++) {
+        for (let j = 1; j < rowLength; j++) {
+            plus = plus + "+";
+        }
+        display(space + plus);
+        space = space + " ";
+        plus = "+";
+        rowLength = rowLength - 2;
     }
-    display(space + plus);
-    space = space + " ";
-    plus = "+";
-    rowLength = rowLength - 2;
+} else {
+    display("Invalid input.");
 }
+
+
 
         </script>
     </body>
